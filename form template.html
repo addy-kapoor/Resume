@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>form</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+<section>
+	<div class="container">
+        <form id ="form">
+		<h1 class="text-center my-2">Resume Generator</h1>
+		<br><br>
+		<div class="row">
+			<div class="col-md-6">
+		<h3>Contact Information</h3><br>
+				<div class="form-group">
+					<label for="nameField">Your Name</label><br>
+					<input type="text" id="nameField" name ="Fname"  placeholder="Enter here" class="form-control"/>
+				</div><br>
+                
+                <div class="form-group">
+					<label for="contactField">Contact Number</label><br>
+					<input type="text" id="contactField" placeholder="Enter here" class="form-control"/>
+				</div><br>
+                
+                <div class="form-group">
+					<label for="addressField">Address</label><br>
+					<textarea type="text"  placeholder="Enter here" class="form-control" id="addressField">
+					</textarea>	
+				</div><br>
+				<h3>Links</h3><br>
+                
+                <div class="form-group mt-2">
+					<label for="linkedField">LinkedIn</label>
+					<input type="text" id="linkedField" placeholder="Enter here" class="form-control"/>
+				</div>
+                
+                <div class="form-group">
+					<label for="gmailField">Gmail</label>
+					<input type="text" id="gmailField" placeholder="Enter here" class="form-control"/>
+				</div><br>
+				<h3>Technical Skills</h3><br>
+				<div class ="row">
+					<div id= "plField" class="col-lg-3"><label for="">Programming Languages</label></div>
+					<div class="col-lg-9"><input type="text" class="form-control"></div>
+					</div><br>
+					<div class ="row">
+					<!-- <div id="ptField" class="col-lg-3"><label for="">Platforms</label></div> -->
+					<!-- <div class="col-lg-9"><input type="number" class="form-control"></div> -->
+					</div><br>
+					
+				
+			</div>
+			<div class="col-md-6">
+				<h3>Professional Summary</h3><br>
+                <div class="form-group">
+					<label for="">Objective</label>
+					<textarea  id="obField" type="text"  placeholder="Enter here" class="form-control" >
+					</textarea>	
+				 </div>
+
+				 <div class="form-group mt-2" id="we"><br>
+					<h3>Work Experience</h3><br>
+					<div class ="row">
+					<div class="col-lg-3" id="cField"><label for="">Company Name</label></div>
+					<div class="col-lg-9"><input type="text" class="form-control"></div>
+					</div><br>
+					<div class ="row">
+					<div class="col-lg-3"><label for="">Role</label></div>
+					<div class="col-lg-9"><input type="text" id="rField" class="form-control"></div>
+					</div><br>
+					<label for="">Key Responsibilities</label>
+					<textarea type="text"  placeholder="Enter here" class="form-control" id="kField"weField >
+					</textarea>	
+
+					<div class="container text-center my-2" id=weAddButton>
+						<button onclick="addNewWEField()" class="btn-btn-primary btn-sm">Add</button>
+					</div>
+                 </div>
+
+                 <div class="form-group mt-2" id="we"><br>
+					<h3>Education Qualification</h3><br>
+					<div class ="row">
+					<div class="col-lg-3"><label for="">Institution</label></div>
+					<div class="col-lg-9"><input type="text" id="iField"class="form-control"></div>
+					</div><br>
+					<div class ="row">
+					<div class="col-lg-3"><label for="">Passing Year</label></div>
+					<div class="col-lg-9"><input type="number" id="passField"class="form-control"></div>
+					</div><br>
+					<div class ="row">
+					<div class="col-lg-3"><label for="">Degree</label></div>
+					<div class="col-lg-9"><input type="TEXT" id="dField"class="form-control"></div>
+					</div>
+
+					<div class="container text-center my-2" id=weAddButton>
+						<button onclick="addNewWEField()" class="btn-btn-primary btn-sm">Add</button>
+					</div>
+                 </div>
+                 
+			</div>
+
+	</div>
+
+	<div class="container text-center mt-3">
+		<button id="submit" onclick="generateCV()"type="button" class="btn btn-primary btn-lg btn-block">Generate CV</button>
+        <!-- <button onclick="window.location.href = 'templates.html';">Generate CV</button> -->
+	</div>
+    </form>
+  </div>
+</section>
+
+<section>
+  <div class="container" id="cvtemplate">
+	<div class="left_side">
+		<div id="nameT" class="profile">
+			<h2>Yash Sankhla</h2>
+			<br>
+			<!-- <br> -->
+		</div>
+			<!-- <div id="pos">
+				<h3>Position</h3>
+			</div> -->
+			
+			
+		
+		
+		<div class="contactinfo">
+			<h3 class="contact">CONTACT INFO</h3>
+			<ul>
+				<li>
+				   <span  class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
+				   <span id="conT" class="text">+91 8302988456</span>
+				</li>
+
+				<li>
+					<span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
+					<span id="eT" class="text">akshijain248@gmail.com</span>
+				 </li>
+
+				 <li>
+					<span  class="icon"><i class="fa fa-linkedin" aria-hidden="true"></i></span>
+					<span id="lT"class="text">www.linkedin.com/in/akshi-jain-29a305213/</span>
+				 </li>
+
+				 <li>
+					<span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
+					<span id="aT" class="text">Rajasthan,India</span>
+				 </li>
+			</ul>
+		</div>
+
+
+		<div class="contactinfoeducation">
+			<h3 class="education">EDUCATION</h3>
+			<ul>
+				<li>
+				  <div id="iT"> <h5>2020 - 2024</h5></div>
+				  <div id="dT"> <h4>Bachelors Degree in Computer Science</h4></div>
+				   <div id="uT"><h4>University Name</h4></div>
+		
+				</li>
+
+				<li>
+					<div id="rt"></div><h5>2019 - 2020</h5>
+					<h4>Senior Secondary</h4>
+					<h4>School Name</h4>
+		 
+				 </li>
+
+				
+			</ul>
+		</div>
+		<div id="sT"class="skillset">
+			<h3 class="skill">TECHNICAL SKILLS</h3>
+			<p>Write skills</p>
+		</div>
+		<!-- div <div id="platforms"> -->
+			<!-- <h3 class="bus">PLATFORMS</h3> -->
+		<!-- </div> -->
+	</div>
+
+	
+	<div class="right_side">
+		<div class="about">
+			<h2 class="title">ABOUT</h2>
+			
+			<div id="abT"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus odit at quidem eligendi officia cum voluptates, dolorem autem, maxime neque saepe. Repellendus, unde eligendi sed architecto magni corrupti quam quidem.</p></div>
+		    
+		   
+		</div>
+
+			
+		
+		<div class="about">
+			<h2 class="title2">WORK EXPERIENCE</h2>
+			<div class="box">
+				<div class="year_comapany">
+					
+					<div id="companyT"><h5>Company Name</h5></div>
+				</div>
+				<div class="text">
+					<div id="desiT"><h4>Senior Data Analyst</h4></div>
+					<div id="kT"><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus debitis laudantium magni d id dolore odit animi ratione repellat ducimus dicta reiciendis. Quaerat debitis quod porro soluta ullam in commodi error mollitia. Placeat non sunt atque deleniti possimus.
+					</p>
+				</div>
+				</div>
+			</div>
+<!-- <br> -->
+
+			<div class="box">
+				<div class="year_comapany">
+					<h5> 2019 - present</h5>
+					<h5>Company Name</h5>
+				</div>
+				<div class="text">
+					<h4>Senior Data Analyst</h4>
+					<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus debitis laudantium magni dolorib
+					Minus offine repellat ducimus dicta reiciendis. Qb
+					</p>
+				</div>
+			</div>
+
+		</div>
+		<div class="projects">
+			<h2 class="title3">PROJECTS</h2>
+			<div class="final">
+			<h3>Project 1</h3>
+			<p>role description</p>
+			<br>
+			<h3>Project 2</h3>
+			<p>Role decription</p>
+		</div>
+		</div>
+		<div class="container mt-3 text-center">
+			<button onclick="printCV()" class="btn background">Print CV</button>
+		</div>
+	</div>
+
+</div>
+
+	
+
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <script>
+        
+function generateCV() {
+  alert("I am an alert box!");
+  let nameField=document.getElementById("nameField").value;
+  let nameT=document.getElementById("nameT");
+  nameT.innerHTML= nameField;
+
+//   document.getElementById("conT").innerHTML=document.getElementById("contactField").value;
+let contactField=document.getElementById("contactField").value;
+  let conT=document.getElementById("conT");
+  conT.innerHTML= contactField;
+  
+
+  document.getElementById("eT").innerHTML=document.getElementById("gmailField").value;
+  document.getElementById("lT").innerHTML=document.getElementById("linkedField").value;
+  document.getElementById("aT").innerHTML=document.getElementById("addressField").value;
+  document.getElementById("iT").innerHTML=document.getElementById("iField").value;
+  document.getElementById("passT").innerHTML=document.getElementById("passField").value;
+  document.getElementById("dT").innerHTML=document.getElementById("dField").value;
+  document.getElementById("sT").innerHTML=document.getElementById("plField").value;
+  document.getElementById("abT").innerHTML=document.getElementById("obField").value;
+  document.getElementById("companyT").innerHTML=document.getElementById("cField").value;
+  document.getElementById("desiT").innerHTML=document.getElementById("rField").value;
+  document.getElementById("kT").innerHTML=document.getElementById("kField").value;
+
+
+  document.getElementById("form").style.display="none";
+  document.getElementById("cvtemplate").style.display="grid";
+  
+}
+function addNewWEField(){
+let newNode = document.createElement("textarea");
+ newNode.classList.add("form-control");                                     
+ newNode.classList.add("eqField");
+ newNode.classList.add("mt-2");
+ newNode.setAttribute("placeholder","enter here");
+ 
+
+}
+function printCV(){
+window.print();
+}
+window.open("templates.html");
+    </script>
+</section>
+
+</body>
