@@ -116,7 +116,7 @@ button:hover{
 <%
 		  if (session.getAttribute("user") != null)
 		  {
-			 response.sendRedirect("/EvaluateForm/welcome.jsp");
+			 response.sendRedirect("/resumebuilder/index.jsp");
 		  } 
 %>
 		
@@ -136,11 +136,11 @@ button:hover{
 			</div>
 
 			<div class="login">
-				<form  action="login" method="post">
+				<form  action="/ResumeBuilder/index.jsp" method="post">
 					<label for="chk" aria-hidden="true">Login</label>
-					<input type="email" name="email" placeholder="Email" required="">
-					<input type="password" name="pswd" placeholder="Password" required="">
-					<button onclick="formopen()">Login</button>
+					<input type="text" name="uname" placeholder="Email" required="">
+					<input type="password" name="psw" placeholder="Password" required="">
+					<button type="submit" onclick="formopen()">Login</button>
 				</form>
 			</div>
 	</div>
@@ -148,9 +148,9 @@ button:hover{
 </html>
 
 <script>
-function formopen()
+/* function formopen()
 {
 	window.open("form.jsp");	
 }
-</script>
+ */</script>
 </html>

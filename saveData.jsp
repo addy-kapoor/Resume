@@ -38,7 +38,7 @@
 			resume.setDesignation2(request.getParameter("Designation2"));
 			resume.setProgLang(request.getParameter("progLang"));
 			resumeRepo.saveEmployee(resume);
-			String redirectURL = "Templates.jsp?email="+email;
+			String redirectURL = "manyTemplatees.jsp";
 		    response.sendRedirect(redirectURL);
 		}
 	catch(Exception e)

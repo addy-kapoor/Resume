@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,6 +8,8 @@
 <title>Welcome</title>
 <link href="./Static resources/css/bootstrap.min.css" rel="stylesheet">
 <script src="./resources/js/bootstrap.bundle.min.js"></script>
+<script>var uniquemail = '<%= session.getAttribute("user")%>';
+</script>
 <style>
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 *
@@ -17,7 +20,7 @@
     font-family: sans-serif;
 }
 body{
-    background-color: lightblue;
+/*     background-color: lightblue; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -119,6 +122,7 @@ padding: 5px;
 .contactinfoeducation h4 :nth-child(2){
     /* margin-top: 20px; */
     color: #ffff;
+    
     font-weight: 100;
     font-family: sans-serif;
 }
@@ -170,13 +174,16 @@ margin-top:20px;
 </style>
 </head>
 <body>
-<form name="vinform">
-<input type="email" onkeyup="sendInfo()" name="v1">Enter your email</input>	<br><br>
+
+<div>
+	<form name="vinform">
+	<input type="email" onkeyup="sendInfo()" name="v1">Enter your email</input>	<br><br>
 </form>
-    <div class="container">
+</div> 
+    <div class="container border border-primary" style="margin-top:60px;" onload="loadImage()">
         <div class="left_side">
             <div class="profile">
-                <h2>Yash Sankhla</h2>
+                <h2 id = "name">Yash Sankhla</h2>
                 <br>
                 <!-- <br> -->
                 <h3>Position</h3>
@@ -184,26 +191,26 @@ margin-top:20px;
             </div>
             
             <div class="contactinfo">
-                <h3 class="contact">CONTACT INFO</h3>
+                <h3 class="contact" >CONTACT INFO</h3>
                 <ul>
                     <li>
                        <span class="icon"><i class="fa fa-phone" aria-hidden="true"></i></span>
-                       <span class="text">+91 8302988456</span>
+                       <span class="text"  id ="mobileno">+91 8302988456</span>
                     </li>
 
                     <li>
                         <span class="icon"><i class="fa fa-envelope" aria-hidden="true"></i></span>
-                        <span class="text" id="name">akshijain248@gmail.com</span>
+                        <span class="text" id="email">akshijain248@gmail.com</span>
                      </li>
 
                      <li>
                         <span class="icon"><i class="fa fa-linkedin" aria-hidden="true"></i></span>
-                        <span class="text">www.linkedin.com/in/akshi-jain-29a305213/</span>
+                        <span class="text" id = "LinkedIn">www.linkedin.com/in/akshi-jain-29a305213/</span>
                      </li>
 
                      <li>
                         <span class="icon"><i class="fa fa-map-marker" aria-hidden="true"></i></span>
-                        <span class="text">Rajasthan,India</span>
+                        <span class="text" id = "location">Rajasthan,India</span>
                      </li>
                 </ul>
             </div>
@@ -213,32 +220,30 @@ margin-top:20px;
                 <h3 class="education">EDUCATION</h3>
                 <ul>
                     <li>
-                       <h5>2020 - 2024</h5>
-                       <h4>Bachelors Degree in Computer Science</h4>
-                       <h4>University Name</h4>
+                       <h5 id = "year1">2020</h5>
+                       <h4 id = "degree1">Bachelors Degree in Computer Science</h4>
+                       <h4 id = "clgname1">University Name</h4>
             
                     </li>
 
                     <li>
-                        <h5>2018 - 2020</h5>
-                        <h4>Senior Secondary</h4>
-                        <h4>School Name</h4>
+                        <h5 id = "year2">2018</h5>
+                        <h4 id = "degree2">Senior Secondary</h4>
+                        <h4 id="clgname2">School Name</h4>
              
                      </li>
 
                     
                 </ul>
             </div>
-            <div class="skillset">
-                <h3 class="skills">TECHNICAL SKILLS</h3>
-            </div>
+           
         </div>
 
         
         <div class="right_side">
             <div class="about">
                 <h2 class="title">ABOUT</h2>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus odit at quidem eligendi officia cum voluptates, dolorem autem, maxime neque saepe. Repellendus, unde eligendi sed architecto magni corrupti quam quidem.</p>
+                <p id = "about">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus odit at quidem eligendi officia cum voluptates, dolorem autem, maxime neque saepe. Repellendus, unde eligendi sed architecto magni corrupti quam quidem.</p>
 
                 
             </div>
@@ -246,12 +251,12 @@ margin-top:20px;
                 <h2 class="title2">WORK EXPERIENCE</h2>
                 <div class="box">
                     <div class="year_comapany">
-                        <h5> 2019 - present</h5>
-                        <h5>Company Name</h5>
+                        <h5 > 2019 - present</h5>
+                        <h5 id = "company1">Company Name</h5>
                     </div>
                     <div class="text">
-                        <h4>Senior Data Analyst</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus debitis laudantium magni doloribus deleniti voluptatum, incidunt porro nostrum perferendis! Explicabo recusandae veritatis, consequuntur praesentium aut dolorem nesciunt eaque commodi numquam.
+                        <h4 id = "designation1">Senior Data Analyst</h4>
+                        <p id = "role1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus debitis laudantium magni doloribus deleniti voluptatum, incidunt porro nostrum perferendis! Explicabo recusandae veritatis, consequuntur praesentium aut dolorem nesciunt eaque commodi numquam.
                         Minus officia culpa ipsa soluta, id dolore odit animi ratione repellat ducimus dicta reiciendis. Quaerat debitis quod porro soluta ullam in commodi error mollitia. Placeat non sunt atque deleniti possimus.
                         </p>
                     </div>
@@ -261,11 +266,11 @@ margin-top:20px;
                 <div class="box">
                     <div class="year_comapany">
                         <h5> 2019 - present</h5>
-                        <h5>Company Name</h5>
+                        <h5 id = "company2">Company Name</h5>
                     </div>
                     <div class="text">
-                        <h4>Senior Data Analyst</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus debitis laudantium magni doloribus deleniti voluptatum, incidunt porro nostrum perferendis! Explicabo recusandae veritatis, consequuntur praesentium aut dolorem nesciunt eaque commodi numquam.
+                        <h4 id = "designation2">Senior Data Analyst</h4>
+                        <p id = "role2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus debitis laudantium magni doloribus deleniti voluptatum, incidunt porro nostrum perferendis! Explicabo recusandae veritatis, consequuntur praesentium aut dolorem nesciunt eaque commodi numquam.
                         Minus officia culpa ipsa soluta, id dolore odit animi ratione repellat ducimus dicta reiciendis. Quaerat debitis quod porro soluta ullam in commodi error mollitia. Placeat non sunt atque deleniti possimus.
                         </p>
                     </div>
@@ -273,19 +278,19 @@ margin-top:20px;
 
             </div>
             <div class="projects">
-                <h2 class="title3">PROJECTS</h2>
+                <h2 class="title3">SKILLS</h2>
                 <div class="final">
-                <h3>Project 1</h3>
-                <p>role description</p>
+                <h3>Platforms</h3>
+                <p id="platfroms">vs code</p>
                 <br>
-                <h3>Project 2</h3>
-                <p>Role decription</p>
             </div>
             </div>
             
         </div>
     </div>
-    <button type="button" onkeyup="sendInfo()">Generate Resume</button>
+    <div>
+    <button onclick="printCV()" style="text-align:center" class="bg-primary text-light" class="btn background">DOWNLOAD</button>
+    </div>
 </body>
 <script>
 /* var request;
@@ -313,7 +318,7 @@ function getInfo() {
 var request;
 function sendInfo() {
 	var v = document.vinform.v1.value;
-	console.log(v);
+	console.log(uniquemail);
 	var url = "getData.jsp?val=" + v;
 	if (window.XMLHttpRequest) {
 		request = new XMLHttpRequest();
@@ -329,11 +334,34 @@ function sendInfo() {
 		alert("Unable to connect to server");
 	}
 }
+function printCV(){
+	window.print();
+}
 function getInfo() {
 	if (request.readyState == 4) {
 		var val = JSON.parse(request.responseText); 
 		console.log(val.name);
-		document.getElementById("name").value = val.name;
+		console.log(document.getElementById("name").value);
+		document.getElementById("email").innerHTML = val.email;
+		document.getElementById("name").innerHTML = val.name;
+		document.getElementById("mobileno").innerHTML = val.mobileno;
+		document.getElementById("LinkedIn").innerHTML = val.LinkedIn;
+		document.getElementById("location").innerHTML = val.location;
+		document.getElementById("clgname1").innerHTML = val.clgname1;
+		document.getElementById("clgname2").innerHTML = val.clgname2;
+		document.getElementById("degree1").innerHTML = val.degree1;
+		document.getElementById("degree2").innerHTML = val.degree2;
+		document.getElementById("year1").innerHTML = val.year1;
+			
+		document.getElementById("about").innerHTML = val.about;
+		document.getElementById("company1").innerHTML = val.company1;
+		document.getElementById("company2").innerHTML = val.company2;
+		document.getElementById("role1").innerHTML = val.role1;
+		document.getElementById("role2").innerHTML = val.role2;
+		document.getElementById("platforms").innerHTML = val.platforms;
+		document.getElementById("designation1").innerHTML = val.designation1;
+		document.getElementById("designation2").innerHTML = val.designation2;
+		document.getElementById("platforms").innerHTML = val.platforms;
 		 /* document.getElementById("myage").value = val.Age;
 		 document.getElementById("myqualification").value = val.Qualification;
 		 document.getElementById("myexperience").value = val.Experience;
