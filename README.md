@@ -1,4 +1,4 @@
-this is code for Resume Builder Website 
+This is code for Resume Builder Website 
 It has a signup and login page after that there is a form which need to be filled (here all the data gets saved into database)
 On the next page we can select templates
 After that all the resume is ready
